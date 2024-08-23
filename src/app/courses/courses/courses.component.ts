@@ -1,9 +1,10 @@
-import { CoursesService } from './../services/courses.service';
 import { Component } from '@angular/core';
+import { catchError, Observable, of } from 'rxjs';
 
-import { Course } from '../models/course';
 import { AppMaterialModule } from '../../shared/app-material/app-material.module';
-import { Observable } from 'rxjs';
+import { Course } from '../models/course';
+import { CoursesService } from './../services/courses.service';
+
 
 @Component({
   selector: 'app-courses',
@@ -17,12 +18,18 @@ import { Observable } from 'rxjs';
 
 export class CoursesComponent {
 
-  courses: Observable<Course[]>;
+  courses$: Observable<Course[]>;
 
   displayedColumns = ['name', 'category']
 
 
   constructor(private coursesService: CoursesService ) {
-    this.courses = this.coursesService.list();
+    this.courses$ = this.coursesService.list()
+    .pipe(
+      catchError(error => {
+        console.log(error)
+        return of([])
+      })
+    );
   }
 }

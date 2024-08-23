@@ -5,3 +5,11 @@ mat-card {
 table {
   width: 100%;
 }
+
+.loading-spinner {
+  background: rgba(0, 0, 0, 0.15);
+  padding: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
