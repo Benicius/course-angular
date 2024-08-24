@@ -23,7 +23,8 @@ export class FlyghtsComponent {
     'flightDate',
     'flightTime',
     'flightType',
-    'bagType'
+    'bagType',
+    'actions'
   ];
 
   constructor(private flyghtService: FlyghtsService) {

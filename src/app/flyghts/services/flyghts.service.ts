@@ -15,7 +15,6 @@ constructor(private httClient: HttpClient) { }
     return this.httClient.get<Flyght[]>(this.API)
     .pipe(
       first(),
-      delay(5000),
       tap(flyght => console.log(flyght))
 
     );
