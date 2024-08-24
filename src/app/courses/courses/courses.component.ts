@@ -20,7 +20,7 @@ export class CoursesComponent {
 
   courses$: Observable<Course[]>;
 
-  displayedColumns = ['name', 'category']
+  displayedColumns = ['name', 'category'];
 
 
   constructor(private coursesService: CoursesService ) {
